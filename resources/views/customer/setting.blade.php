@@ -1,8 +1,9 @@
 @extends('customer.layout.master')
 
 @section('title', 'Edit Profile')
+
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/profile.css') }}">
     <style>
         .profile-image-1 {
             width: 150px;
@@ -25,13 +26,14 @@
         </div>
 
         <div class="p-4">
-            <form class="user" method="POST" action="{{ route('customer.update-settings') }}" enctype="multipart/form-data">
+            <form class="user" method="POST" action="{{ secure_url(route('customer.update-settings')) }}"
+                enctype="multipart/form-data">
                 @csrf
                 <div class="text-center">
-                    <img src="{{ asset($customer->profile_image ?: 'https://www.svgrepo.com/show/495590/profile-circle.svg') }}" 
-                         id="profileImage" class="profile-image mb-4" alt="Profile Picture">
+                    <img src="{{ secure_asset($customer->profile_image ?: 'https://www.svgrepo.com/show/495590/profile-circle.svg') }}"
+                        id="profileImage" class="profile-image mb-4" alt="Profile Picture">
                     <input type="file" class="form-control col-3 mx-auto" id="imageInput" name="profile_picture"
-                           accept="image/*" onchange="loadImage(event)">
+                        accept="image/*" onchange="loadImage(event)">
                     @error('profile_picture')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -295,6 +297,6 @@
 
 @section('scripts')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/profile.js') }}"></script>
-    <script src="{{ asset('js/password.js') }}"></script>
+    <script src="{{ secure_asset('js/profile.js') }}"></script>
+    <script src="{{ secure_asset('js/password.js') }}"></script>
 @endsection

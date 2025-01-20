@@ -2,13 +2,16 @@
 
 @section('title', 'Ticket Details')
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/image_preview.css') }}">
+    <link rel="stylesheet" href="{{ secure_asset('css/image_preview.css') }}">
     <style>
         /* Define a custom style to make the image smaller */
         .ticket-image {
-            max-width: 400px; /* Ensure the image does not exceed its container width */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 100%; /* Limit the maximum height */
+            max-width: 400px;
+            /* Ensure the image does not exceed its container width */
+            height: auto;
+            /* Maintain aspect ratio */
+            max-height: 100%;
+            /* Limit the maximum height */
         }
     </style>
 @endsection
@@ -28,14 +31,16 @@
                 <p class="card-text">{{ $ticket->message }}</p>
                 @if ($ticket->image)
                     <div class="mt-3">
-                        <img src="{{ asset($ticket->image) }}" class="img-fluid ticket-image" alt="Ticket Image">
+                        <img id="ticketImagePreview" src="{{ secure_asset($ticket->image) }}" class="img-fluid ticket-image"
+                            alt="Ticket Image">
                     </div>
                 @endif
+
             </div>
         </div>
     </div>
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/image_preview.js') }}"></script>
+    <script src="{{ secure_asset('js/image_preview.js') }}"></script>
 @endsection

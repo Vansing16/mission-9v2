@@ -73,8 +73,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 Route::middleware(['auth', 'role:technician'])->group(function () {
     Route::get('/technician', [TechnicianController::class, 'index'])->name('technician.dashboard');
     Route::get('/technician/ticket', [TechnicianController::class, 'showTechnicianTickets'])->name('technician.tickets');
-    Route::get('/technician/tickets/{status?}', [TechnicianController::class, 'showTechnicianTickets'])
-    ->name('technician.tickets');
+    Route::get('/technician/tickets/{status?}', [TechnicianController::class, 'showTechnicianTickets'])->name('technician.tickets.filtered');
     Route::get('/technician/ticket/{ticketId}', [TechnicianController::class, 'viewTicket'])->name('technician.view-ticket');
     Route::get('/technician/messages', [TechnicianController::class, 'message'])->name('technician.message');
     Route::get('/technician/settings', [TechnicianController::class, 'editSettings'])->name('technician.setting');

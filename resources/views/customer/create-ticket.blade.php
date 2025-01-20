@@ -2,9 +2,9 @@
 
 @section('title', 'Create Ticket')
 
-
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/image_preview.css') }}">
+    <!-- Use secure_asset to ensure assets are loaded via HTTPS -->
+    <link rel="stylesheet" href="{{ secure_asset('css/image_preview.css') }}">
     <style>
         /* Additional styles for form layout */
         .card-body {
@@ -31,7 +31,7 @@
         <div class="col">
             <div class="card mt-2 mb-3">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('customer.store-ticket') }}" enctype="multipart/form-data" id="ticketForm">
+                    <form method="POST" action="{{ secure_url(route('customer.store-ticket')) }}" enctype="multipart/form-data" id="ticketForm">
                         @csrf
 
                         <div class="form-group">
@@ -66,6 +66,6 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/image_preview.js') }}"></script>
+    <!-- Use secure_asset for JavaScript file -->
+    <script src="{{ secure_asset('js/image_preview.js') }}"></script>
 @endsection
-

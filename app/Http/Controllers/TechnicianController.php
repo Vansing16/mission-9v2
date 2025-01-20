@@ -51,6 +51,7 @@ class TechnicianController extends Controller
          return view('technician.ticket', compact('tickets'));
      }
 
+     
 
     /**
      * Display the specified ticket and its messages.
