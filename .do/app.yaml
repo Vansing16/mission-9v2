@@ -1,0 +1,8 @@
+name: practice-app # The name of the app
+services:
+- environment_slug: php
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Vansing16/mission-9v2 # Your GitHub repository to deploy
+  name: practice-app # The name of the app

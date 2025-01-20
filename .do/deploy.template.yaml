@@ -1,0 +1,12 @@
+spec:
+  name: practice-app # The name of the app
+  services:
+  - environment_slug: php
+    git:
+      branch: main
+      repo_clone_url: https://github.com/Vansing16/mission-9v2.git # Your GitHub repository to deploy (SSH) or (HTTPS)
+    envs:
+    - key: APP_KEY
+      value: "base64:v5NECFDRN+P6v1Zf9JMXEOlNf2rcaJ+vr35YwNenm5s=" # Your Laravel app key (php artisan key:generate --show)
+    name: practice-app # The name of the app 
+    run_command: heroku-php-apache2 public/
